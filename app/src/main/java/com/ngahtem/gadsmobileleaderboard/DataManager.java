@@ -1,5 +1,7 @@
 package com.ngahtem.gadsmobileleaderboard;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -24,14 +26,14 @@ public class DataManager {
         return mlearnerHours;
     }
 
-    public void setMlearnerHours(List<LearnerHourModel> mlearnerHours) {
-        this.mlearnerHours = mlearnerHours;
-//        this.mlearnerHours.sort(new Comparator<LearnerHourModel>() {
-//            @Override
-//            public int compare(LearnerHourModel o1, LearnerHourModel o2) {
-//                return o1.getHours() - o2.getHours();
-//            }
-//        });
+    public void setMlearnerHours(List<LearnerHourModel> learnerHours) {
+        this.mlearnerHours = learnerHours;
+        Collections.sort(mlearnerHours, new Comparator<LearnerHourModel>() {
+            @Override
+            public int compare(LearnerHourModel o1, LearnerHourModel o2) {
+                return o2.getHours() - o1.getHours();
+            }
+        });
     }
 
     public List<SkillsModel> getSkillsModels() {
@@ -40,5 +42,11 @@ public class DataManager {
 
     public void setSkillsModels(List<SkillsModel> skillsModels) {
         mSkillsModels = skillsModels;
+        Collections.sort(mSkillsModels, new Comparator<SkillsModel>() {
+            @Override
+            public int compare(SkillsModel o1, SkillsModel o2) {
+                return o2.getScore() - o1.getScore();
+            }
+        });
     }
 }
