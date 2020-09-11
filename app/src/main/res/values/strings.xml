@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">LEADERBOARD</string>
+    <string name="tab_text_1">Learning Leaders</string>
+    <string name="tab_text_2">Skill IQ Leaders</string>
+    <string name="learner_hours_value">250 learning hours, Cameroon</string>
+    <string name="learner_name_value">Ngah Tem</string>
+    <string name="top_learner_content_description">Top Learner image</string>
+    <string name="top_skill_content_description">Skill badge</string>
+    <string name="skill_iq_value">250 skill IQ score, Cameroon</string>
+    <string name="submit_button_text">Submit</string>
+    <string name="title_activity_submit">Project Submission</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="project_link">Project on GITHUB (link)</string>
+    <string name="email_hint">Email Address</string>
+    <string name="first_name_hint">First Name</string>
+    <string name="last_name_hint">Last Name</string>
+    <string name="toolbar_title">Project Submission</string>
+    <string name="subtitle_text"> Project Submission</string>
+    <string name="confirm_btn_text">Yes</string>
+    <string name="confirm_text">Are you sure</string>
+    <string name="success_text">Submission Successful</string>
+    <string name="proj_sub_failure_text">Submission not Successful</string>
+</resources>
