@@ -19,6 +19,14 @@ public class AlertDialogClass extends DialogFragment {
     private String dialogToShow;
     private DialogFragment mDialog = this;
 
+    public String getDialogToShow() {
+        return dialogToShow;
+    }
+
+    public void setDialogToShow(String dialogToShow) {
+        this.dialogToShow = dialogToShow;
+    }
+
     public AlertDialogClass(String dialogToShow) {
         super();
         this.dialogToShow = dialogToShow;

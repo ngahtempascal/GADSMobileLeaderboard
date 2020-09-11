@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
 //        Controller controller = new Controller();
 //        controller.start();
 
-        API api = new API();
+        API api = new API("https://gadsapi.herokuapp.com");
         api.getTopLearnersHours(this, new API.RequestListener<List<LearnerHourModel>>() {
             @Override
             public void onSuccess(List<LearnerHourModel> response) {

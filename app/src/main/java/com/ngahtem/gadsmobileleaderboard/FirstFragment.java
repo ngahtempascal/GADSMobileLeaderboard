@@ -1,5 +1,6 @@
 package com.ngahtem.gadsmobileleaderboard;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.fragment.NavHostFragment;
 
-public class FirstFragment extends Fragment implements AlertDialogClass.NoticeDialogListener{
+public class FirstFragment extends Fragment{
 
     private TextView mFirstName;
     private TextView mLastName;
@@ -24,6 +25,7 @@ public class FirstFragment extends Fragment implements AlertDialogClass.NoticeDi
     private static final String PROJECT_SUBMISSION_SUCCESS = "PROJECT_SUBMISSION_SUCCESSFUL";
     private static final String PROJECT_SUBMISSION_FAILURE = "PROJECT_SUBMISSION_FAILED";
     private FragmentManager mFragmentManager;
+    private AlertDialogClass mDialog;
 
     @Override
     public View onCreateView(
@@ -50,8 +52,8 @@ public class FirstFragment extends Fragment implements AlertDialogClass.NoticeDi
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialogClass dialog = new AlertDialogClass(PROJECT_SUBMISSION_FAILURE);
-                dialog.show(mFragmentManager, SUBMIT_PROJECT);
+                mDialog = new AlertDialogClass(SUBMIT_PROJECT);
+                mDialog.show(mFragmentManager, SUBMIT_PROJECT);
             }
         });
 //        view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
@@ -63,8 +65,32 @@ public class FirstFragment extends Fragment implements AlertDialogClass.NoticeDi
 //        });
     }
 
-    @Override
-    public void onSubmitProjectButtonClick(DialogFragment dialog) {
+    public String getFirstName(){
+        return this.mFirstName.getText().toString();
+    }
 
+    public String getLastName(){
+        return this.mLastName.getText().toString();
+    }
+
+    public String getEmail(){
+        return (String)this.mEmail.getText().toString();
+    }
+
+    public String getSubmitProjectLink(){
+        return (String)this.mGithubLink.getText().toString();
+    }
+
+    public void showProjectSubmitSuccessDialog(){
+        this.mDialog.dismiss();
+        this.mDialog = new AlertDialogClass(PROJECT_SUBMISSION_SUCCESS);
+        this.mDialog.show(mFragmentManager, PROJECT_SUBMISSION_SUCCESS);
+
+    }
+
+    public void showProjectSubmitFailureDialog(){
+        this.mDialog.dismiss();
+        this.mDialog = new AlertDialogClass(PROJECT_SUBMISSION_FAILURE);
+        this.mDialog.show(mFragmentManager, PROJECT_SUBMISSION_FAILURE);
     }
 }

@@ -2,6 +2,8 @@ package com.ngahtem.gadsmobileleaderboard;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 
 import java.util.List;
@@ -19,18 +21,13 @@ public class API {
 
     private final Api api;
 
-    public API() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://gadsapi.herokuapp.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        api = retrofit.create(Api.class);
-    }
-
     public API(String baseUrl){
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         api = retrofit.create(Api.class);
     }
@@ -43,6 +40,14 @@ public class API {
 
     public void getTopSkills(Context context, RequestListener<List<SkillsModel>> listener){
         api.getTopSkills().enqueue(new ApiCallback<>(context, listener));
+    }
+
+    public void submit(Context context,
+                       String firstname,
+                       String lastname, String email, String githubLink,
+                       RequestListener<JsonElement> listener){
+        api.submitProject(firstname, lastname, email, githubLink)
+                .enqueue(new ApiCallback<>(context, listener));
     }
 
     public interface Api {
@@ -79,12 +84,14 @@ public class API {
 
         @Override
         public void onResponse(Call<T> call, retrofit2.Response<T> response) {
+            System.out.println("response from submit request: " + response);
             listener.onResponse();
             listener.onSuccess(response.body());
         }
 
         @Override
         public void onFailure(Call<T> call, Throwable t) {
+            System.out.println(t.getMessage());
             listener.onResponse();
             listener.onError();
         }
