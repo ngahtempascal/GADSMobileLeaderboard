@@ -66,6 +66,7 @@ public class AlertDialogClass extends DialogFragment {
 
             case "PROJECT_SUBMISSION_FAILED":
                 view = inflater.inflate(R.layout.project_submit_failure, null);
+                break;
             default:
                 view = null;
         }

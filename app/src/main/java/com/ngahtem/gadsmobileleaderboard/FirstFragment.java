@@ -50,8 +50,8 @@ public class FirstFragment extends Fragment implements AlertDialogClass.NoticeDi
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialogClass dialog = new AlertDialogClass(PROJECT_SUBMISSION_SUCCESS);
-                dialog.show(mFragmentManager, PROJECT_SUBMISSION_SUCCESS);
+                AlertDialogClass dialog = new AlertDialogClass(PROJECT_SUBMISSION_FAILURE);
+                dialog.show(mFragmentManager, SUBMIT_PROJECT);
             }
         });
 //        view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {

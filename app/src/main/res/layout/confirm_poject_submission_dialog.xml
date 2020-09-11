@@ -8,8 +8,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="300dp"
         app:cardBackgroundColor="@color/colorBackground"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="16dp"
         app:cardElevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,7 +34,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="64dp"
                 android:layout_marginEnd="8dp"
                 android:gravity="center|center_vertical"
                 android:orientation="horizontal"
@@ -67,13 +68,14 @@
             <Button
                 android:id="@+id/button_confirm_project_submission"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="64dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="32dp"
                 android:background="@drawable/confirm_btn_background"
                 android:text="@string/confirm_btn_text"
+                android:textColor="@color/colorAccentDark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
